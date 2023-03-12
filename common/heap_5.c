@@ -109,6 +109,8 @@
  * Note 0x80000000 is the lower address so appears in the array first.
  *
  */
+#ifndef FREERTOS_EXTERNAL
+
 #include <stdlib.h>
 
 /* Defining MPU_WRAPPERS_INCLUDED_FROM_API_FILE prevents task.h from redefining
@@ -525,3 +527,4 @@ const HeapRegion_t *pxHeapRegion;
 	xBlockAllocatedBit = ( ( size_t ) 1 ) << ( ( sizeof( size_t ) * heapBITS_PER_BYTE ) - 1 );
 }
 
+#endif /* FREERTOS_EXTERNAL */

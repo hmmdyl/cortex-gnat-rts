@@ -21,6 +21,8 @@
 // Called if configCHECK_FOR_STACK_OVERFLOW is defined to non-zero and
 // a stack overflow is detected.
 
+#ifndef FREERTOS_EXTERNAL
+
 #include <FreeRTOS.h>
 #include <task.h>
 
@@ -29,3 +31,5 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask,
   // Endless loop (for checking via debugger)
   for (;;);
 }
+
+#endif /* FREERTOS_EXTERNAL */

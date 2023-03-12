@@ -24,6 +24,8 @@
 // write your own version, in Ada if you like, perhaps to output the
 // exception message to LCD.
 
+#ifndef FREERTOS_EXTERNAL
+
 #include <FreeRTOS.h>
 #include <task.h>
 
@@ -34,3 +36,13 @@ void __gnat_last_chance_handler(const char *message, int line) {
   // Loop indefinitely: use the debugger to examine the backtrace.
   while (1) {}
 }
+
+#else
+
+__attribute__((weak))
+void __gnat_last_chance_handler(const char *message, int line) {
+  // Loop indefinitely: use the debugger to examine the backtrace.
+  while (1) {}
+}
+
+#endif

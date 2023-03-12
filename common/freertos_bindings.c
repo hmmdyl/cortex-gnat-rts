@@ -25,6 +25,7 @@
 // in the first place is that the implementation is different for
 // different CPU architectures.
 
+#if 0
 #include <FreeRTOS.h>
 #include <queue.h>
 #include <semphr.h>
@@ -101,3 +102,4 @@ portBASE_TYPE _gnat_xSemaphoreGiveFromISR
    portBASE_TYPE *pxHigherPriorityTaskWoken) {
   return xSemaphoreGiveFromISR(xSemaphore, pxHigherPriorityTaskWoken);
 }
+#endif
