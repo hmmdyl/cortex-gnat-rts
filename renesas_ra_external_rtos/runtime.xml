@@ -20,8 +20,8 @@
    package Linker is
       for Required_Switches use Linker'Required_Switches &amp;
         ("${RUNTIME_DIR(ada)}/adalib/libgnat.a") &amp;
-        Compiler.Common_Required_Switches &amp;
-        ("-nostdlib", "-lm", "-lgcc", "-lc");
+        Compiler.Common_Required_Switches ;--&amp;
+        --("-nostdlib", "-lm", "-lgcc", "-lc");
 
    end Linker;
 

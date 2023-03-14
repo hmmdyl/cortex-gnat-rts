@@ -35,7 +35,7 @@ package body Environment_Task is
       with
         Import,
         Convention => C,
-        External_Name => "main";
+        External_Name => "ada_main";
    begin
       Main; -- should not return;
    end Environment_Task;
