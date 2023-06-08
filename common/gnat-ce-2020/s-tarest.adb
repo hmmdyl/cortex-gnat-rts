@@ -100,6 +100,21 @@ package body System.Tasking.Restricted.Stages is
             P.Task_Proc (P.Discriminants);
          end;
       else
+         declare
+            procedure Emplace_Sec_Stack (addr : System.Address);
+
+            procedure Emplace_Sec_Stack (addr : System.Address) is
+               pragma Warnings (Off, "default initialization of");
+               Sec_Stack : System.Secondary_Stack.SS_Stack
+                 (Size => P.SStack_Size) with Address => addr;
+               pragma Warnings (On, "default initialization of");
+            begin
+               null;
+            end Emplace_Sec_Stack;
+         begin
+            Emplace_Sec_Stack (P.SStack_Addr.all'Address);
+         end;
+
          --  Register the compiler-allocated secondary stack
          P.ATCB.Secondary_Stack := P.SStack_Addr;
 
